@@ -5,6 +5,8 @@ dataset_info:
     dtype: int64
   - name: Difficulty
     dtype: string
+  - name: City
+    dtype: string
   - name: Question
     dtype: string
   - name: Multi-hop search path
@@ -13,10 +15,10 @@ dataset_info:
     dtype: string
   splits:
   - name: train
-    num_bytes: 2117889
+    num_bytes: 2126889
     num_examples: 900
-  download_size: 788613
-  dataset_size: 2117889
+  download_size: 789091
+  dataset_size: 2126889
 configs:
 - config_name: default
   data_files:
