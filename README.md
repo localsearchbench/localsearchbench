@@ -1,7 +1,6 @@
 # 🚏 LocalSearchBench
 
-Benchmarking agentic local-life search with nine high-density Chinese cities.  
-Live demo, leaderboard, and playground: [localsearchbench.github.io](https://localsearchbench.github.io)
+Benchmarking agentic local-life search with nine high-density Chinese cities.
 
 
 ## 📝 Abstract
@@ -50,18 +49,6 @@ print(ds["train"][0]["Multi-hop search path"])
 | LongCat-Large-32K | 2.73 | 3.22 | 33.19 | 80.51 | 60.80 |
 | GPT-4.1 | 1.72 | 2.70 | 26.76 | 75.42 | 72.63 |
 | Gemini-2.5-Pro | 1.89 | 2.86 | 26.09 | 77.93 | **78.26** |
-
-> Full interactive leaderboard (with fluency and safety columns) is available on the [project page](https://localsearchbench.github.io/#leaderboard).
-
-## 📎 Citation
-```bibtex
-@dataset{localsearchbench2025,
-  title   = {LocalSearchBench: Benchmarking Agentic Search in Real-World Local Life Services},
-  author  = {Meituan-AsX Team},
-  year    = {2025},
-  url     = {https://huggingface.co/datasets/localsearchbench/localsearchbench}
-}
-```
 
 ## ✅ License
 MIT License. Commercial and research use permitted with attribution to LocalSearchBench.
