@@ -83,14 +83,6 @@ print(ds["train"][0]["Multi-hop search path"])
 | LongCat-Flash-Thinking | 75.90 | 43.52 | 48.96 | 46.56 |
 | GPT-4.1 | 74.28 | 42.53 | 48.10 | 44.83 |
 
-## 📖 Citation
-```bibtex
-@article{localsearchbench2025,
-  title={LocalSearchBench: A Benchmark for Local Search and Recommendation},
-  author={Your Name},
-  year={2025}
-}
-```
 
 ## ✅ License
 MIT License. Commercial and research use permitted with attribution to LocalSearchBench.
