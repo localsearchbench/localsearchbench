@@ -2,9 +2,15 @@
 
 Benchmarking agentic local-life search with nine high-density Chinese cities.
 
+## 🌐 Quick Links
+
+- **Demo Website**: [localsearchbench.github.io](https://localsearchbench.github.io)
+- **Paper**: Coming soon
+- **RAG Server**: See server README for backend deployment
+- **MCP Tools**: Use as AI tool in Claude Desktop, Cursor, and more!
 
 ## 📝 Abstract
-Recent advances in large reasoning models (LRMs) have enabled agentic search systems to perform complex multi-step reasoning across multiple sources. However, most research focuses on general information retrieval and rarely explores vertical domains with unique challenges. In this work, we focus on local life services and introduce LocalSearchBench, which encompasses diverse and complex business scenarios. Real-world queries in this domain are often ambiguous and require multi-hop reasoning across merchants and products, remaining challenging and not fully addressed. As the first comprehensive benchmark for agentic search in local life services, LocalSearchBench includes over **1,354,185** high-quality merchant entries spanning six business scenarios and nine cities. We construct **900** multi-hop QA tasks (3–5 hops, L3–L4 difficulty) based on real user intents, challenging agents to decompose requirements, retrieve information, and synthesize itineraries. We also developed **LocalPlayground**, a unified evaluation interface integrating retrieval, reranking, and tool-use traces. Experiments show that even state-of-the-art LRMs struggle on LocalSearchBench: the best model (DeepSeek-V3.1) reaches only **34.34% correctness**, with average completeness and faithfulness below 80% and 62%, respectively. This highlights the need for specialized benchmarks and domain-specific agent training in local life services.
+Recent advances in large reasoning models (LRMs) have enabled agentic search systems to perform complex multi-step reasoning across multiple sources. However, most research focuses on general information retrieval and rarely explores vertical domains with unique challenges. In this work, we focus on local life services and introduce LocalSearchBench, which encompasses diverse and complex business scenarios. Real-world queries in this domain are often ambiguous and require multi-hop reasoning across merchants and products, remaining challenging and not fully addressed. As the first comprehensive benchmark for agentic search in local life services, LocalSearchBench includes over **1,354,185** high-quality merchant entries spanning six business scenarios and nine cities. We construct **900** multi-hop QA tasks (3–5 hops, L3–L4 difficulty) based on real user intents, challenging agents to decompose requirements, retrieve information, and synthesize itineraries. We also developed **LocalPlayground**, a unified evaluation interface integrating retrieval, reranking, and tool-use traces. Experiments show that even state-of-the-art LRMs struggle on LocalSearchBench: the best model (DeepSeek-V3.1) reaches only **34.34%** correctness, with average completeness and faithfulness below 80% and 62%, respectively. This highlights the need for specialized benchmarks and domain-specific agent training in local life services.
 
 ## ⭐ Key Features
 - **Six core scenarios**: Dining, entertainment, shopping, hotel, travel errands, and mixed lifestyle tasks reflect the platform's dominant traffic mix.
@@ -12,7 +18,9 @@ Recent advances in large reasoning models (LRMs) have enabled agentic search sys
 - **Multi-hop supervision**: Each QA example bundles a full `Multi-hop search path` trace that records tool calls and intermediate evidence.
 - **Difficulty grading (L3–L4)**: First industry-aligned grading system for local-life agentic search, measuring requirement complexity and plan length.
 - **Merchant-scale grounding**: 1.35M merchants with anonymization, augmentation, and quality filtering support faithful retrieval.
-
+- **Interactive Demo**: Web-based interface for testing
+- **GPU-Accelerated RAG**: VLLM-powered embedding and reranking
+- **MCP Integration**: Use as AI tool in Claude Desktop, Cursor, and more!
 
 ## 📊 Benchmark At a Glance
 - **Merchant database**: 1,354,185 POIs collected via multi-agent crawling and QA.
@@ -49,6 +57,15 @@ print(ds["train"][0]["Multi-hop search path"])
 | LongCat-Large-32K | 2.73 | 3.22 | 33.19 | 80.51 | 60.80 |
 | GPT-4.1 | 1.72 | 2.70 | 26.76 | 75.42 | 72.63 |
 | Gemini-2.5-Pro | 1.89 | 2.86 | 26.09 | 77.93 | **78.26** |
+
+## 📖 Citation
+```bibtex
+@article{localsearchbench2025,
+  title={LocalSearchBench: A Benchmark for Local Search and Recommendation},
+  author={Your Name},
+  year={2025}
+}
+```
 
 ## ✅ License
 MIT License. Commercial and research use permitted with attribution to LocalSearchBench.
