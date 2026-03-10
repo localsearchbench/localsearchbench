@@ -5,9 +5,7 @@ Benchmarking agentic local-life search with nine high-density Chinese cities.
 ## 🌐 Quick Links
 
 - **Demo Website**: [localsearchbench.github.io](https://localsearchbench.github.io)
-- **Paper**: Coming soon
 - **RAG Server**: See server README for backend deployment
-- **MCP Tools**: Use as AI tool in Claude Desktop, Cursor, and more!
 
 ## 📝 Abstract
 Recent advances in large reasoning models (LRMs) have enabled agentic search systems to perform complex multi-step reasoning across multiple sources. However, most studies focus on general information retrieval and rarely explores vertical domains with unique challenges. In this work, we focus on local life services and introduce **LocalSearchBench**, which encompasses diverse and complex business scenarios. Real-world queries in this domain are often ambiguous and require multi-hop reasoning across merchants and products, remaining challenging and not fully addressed. As the first comprehensive benchmark for agentic search in local life services, LocalSearchBench comprises a database of over **1.3M** merchant entries across **6** service categories and **9** major cities, and **900** multi-hop QA tasks from real user queries that require multi-step reasoning. We also developed **LocalPlayground**, a unified environment integrating retrieval, reranking, and tool-use traces for comprehensive evaluation. Experiments show that even state-of-the-art LRMs struggle on LocalSearchBench: the best model (Deepseek-V3.2) reaches only **32.93%** correctness, highlighting the need for specialized benchmarks and domain-specific agent training in local life services.
@@ -20,7 +18,6 @@ Recent advances in large reasoning models (LRMs) have enabled agentic search sys
 - **Merchant-scale grounding**: 1.3M merchants with anonymization, augmentation, and quality filtering support faithful retrieval.
 - **Interactive Demo**: Web-based interface for testing
 - **GPU-Accelerated RAG**: VLLM-powered embedding and reranking
-- **MCP Integration**: Use as AI tool in Claude Desktop, Cursor, and more!
 
 
 ## 📊 Benchmark At a Glance
@@ -55,9 +52,9 @@ print(ds["train"][0]["Multi-hop search path"])
 ### 📊 Answer Quality Metrics
 | Model | Avg tool calls | Avg rounds | Correctness | Completeness | Fluency | Faithfulness | Safety |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Deepseek-V3.2 (w/ thinking)** | 3.21 | 4.20 | **32.93** | 77.63 | 71.01 | 39.87 | 81.22 |
-| **GLM-4.6 (w/ thinking)** | 3.08 | 4.06 | 32.83 | 76.83 | 70.27 | 37.48 | 81.30 |
-| **Gemini-2.5-Pro** | 2.75 | 3.10 | 32.41 | 71.10 | 71.21 | 35.02 | 82.41 |
+| Deepseek-V3.2 (w/ thinking) | 3.21 | 4.20 | 32.93 | 77.63 | 71.01 | 39.87 | 81.22 |
+| GLM-4.6 (w/ thinking) | 3.08 | 4.06 | 32.83 | 76.83 | 70.27 | 37.48 | 81.30 |
+| Gemini-2.5-Pro | 2.75 | 3.10 | 32.41 | 71.10 | 71.21 | 35.02 | 82.41 |
 | Deepseek-V3.2 (w/o thinking) | 3.12 | 4.11 | 32.81 | 77.15 | 70.21 | 36.05 | 81.61 |
 | o3(high) | 2.91 | 3.38 | 31.60 | 69.71 | 70.80 | 33.98 | 81.96 |
 | GLM-4.6 (w/o thinking) | 2.86 | 3.86 | 28.97 | 76.45 | 70.37 | 35.40 | 81.40 |
@@ -75,13 +72,22 @@ print(ds["train"][0]["Multi-hop search path"])
 ### 🎯 Trajectory Effectiveness Metrics
 | Model | Action Relevance | Evidence Sufficiency | Causal Coherence | Search Efficiency |
 | --- | --- | --- | --- | --- |
-| Deepseek-V3.2 (w/ thinking) | **81.53** | 49.95 | 53.70 | 51.04 |
-| GLM-4.6 (w/ thinking) | 80.88 | 47.54 | 52.83 | 51.09 |
-| Gemini-2.5-Pro | 79.47 | 47.68 | 52.52 | 50.22 |
-| o3(high) | 78.68 | 46.47 | 51.10 | 47.95 |
+| Qwen3-14B (w/ thinking) | 81.70 | 47.24 | 52.52 | 51.65 |
+| Qwen3-14B (w/o thinking) | 80.40 | 46.44 | 50.96 | 50.02 |
+| LongCat-Flash-Thinking | 78.50 | 47.37 | 53.18 | 53.27 |
+| Deepseek-V3.2 (w/ thinking) | 75.60 | 48.86 | 52.62 | 54.83 |
+| GLM-4.6 (w/ thinking) | 77.70 | 48.90 | 52.67 | 54.43 |
+| LongCat-Flash-Chat | 77.80 | 47.33 | 50.86 | 52.29 |
+| Qwen3-32B (w/ thinking) | 75.00 | 46.99 | 48.87 | 49.13 |
+| Gemini-2.5-Pro | 77.30 | 45.73 | 52.87 | 41.78 |
+| Qwen3-32B (w/o thinking) | 74.60 | 46.52 | 48.82 | 49.84 |
 | Qwen3-235B-A22B (w/ thinking) | 80.40 | 45.75 | 52.04 | 48.63 |
-| LongCat-Flash-Thinking | 75.90 | 43.52 | 48.96 | 46.56 |
-| GPT-4.1 | 74.28 | 42.53 | 48.10 | 44.83 |
+| o3(high) | 75.90 | 44.71 | 51.78 | 42.96 |
+| Qwen3-235B-A22B (w/o thinking) | 75.20 | 43.61 | 50.68 | 45.99 |
+| GLM-4.6 (w/o thinking) | 74.30 | 48.44 | 50.79 | 52.76 |
+| Gemini-2.5-Flash | 70.50 | 41.61 | 48.94 | 46.91 |
+| Deepseek-V3.2 (w/o thinking) | 75.50 | 48.49 | 52.23 | 54.33 |
+| GPT-4.1 | 68.40 | 38.62 | 45.83 | 42.29 |
 
 
 ## ✅ License
