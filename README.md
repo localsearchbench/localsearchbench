@@ -22,6 +22,7 @@ Recent advances in large reasoning models (LRMs) have enabled agentic search sys
 - **GPU-Accelerated RAG**: VLLM-powered embedding and reranking
 - **MCP Integration**: Use as AI tool in Claude Desktop, Cursor, and more!
 
+
 ## 📊 Benchmark At a Glance
 - **Merchant database**: 1,354,185 POIs collected via multi-agent crawling and QA.
 - **QA tasks**: 900 samples → 100 tasks per city, 3–5 hops each.
